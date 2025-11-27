@@ -11,8 +11,8 @@ COPY package.json package-lock.json* ./
 RUN npm ci --omit=dev || npm install --omit=dev
 
 # Copy source code
-COPY dist/ ./
-COPY tsconfig.json ./
+COPY dist .
+COPY tsconfig.json .
 
 # Expose the port
 EXPOSE 8080
