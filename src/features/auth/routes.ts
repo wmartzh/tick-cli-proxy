@@ -1,7 +1,7 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import type { RouteConfig } from "../../router.ts";
+import type { RouteConfig } from "../../router";
 import { v4 } from "uuid";
-import cache from "../../cache.ts";
+import cache from "../../cache";
 
 const AUTHORIZE_URL = `${process.env.API_HOST}/oauth/authorize`;
 const TOKEN_URL = `${process.env.API_HOST}/oauth/token`;
