@@ -11,7 +11,7 @@ COPY package.json package-lock.json* ./
 RUN npm ci --omit=dev || npm install --omit=dev
 
 # Copy source code
-COPY src/ ./src/
+COPY dist/ ./
 COPY tsconfig.json ./
 
 # Expose the port
@@ -19,4 +19,4 @@ EXPOSE 8080
 
 
 # Run the application
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
