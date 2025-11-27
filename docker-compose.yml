@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  tick-proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tick-proxy-api
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - HOST=0.0.0.0
+    restart: unless-stopped
+    volumes:
+      # Mount source code for development (optional - comment out for production)
+      - ./src:/app/src:ro
+    networks:
+      - tick-proxy-network
+
+networks:
+  tick-proxy-network:
+    driver: bridge
