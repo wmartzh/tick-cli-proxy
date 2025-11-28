@@ -11,7 +11,7 @@ const API_PARAMS = {
   scope: process.env.API_SCOPE!,
   state: process.env.API_CSRF!,
   response_type: "code",
-  redirect_uri: `http://${process.env.REDIRECT_HOST}/auth/callback`,
+  redirect_uri: ` ${process.env.REDIRECT_HOST}/auth/callback`,
 };
 
 async function authorizeRequest(
