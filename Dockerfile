@@ -8,17 +8,17 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 
 # Install dependencies
-RUN npm ci  || npm install
+RUN npm ci || npm install
 
-RUN npm run build
-
-# Copy source code
-COPY dist .
+# Copy source code and config
+COPY src ./src
 COPY tsconfig.json .
+
+# Build TypeScript to JavaScript
+RUN npm run build
 
 # Expose the port
 EXPOSE 8080
 
-
-# Run the application
-CMD ["node", "index.js"]
+# Run the compiled application
+CMD ["node", "dist/index.js"]
