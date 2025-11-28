@@ -86,6 +86,7 @@ async function exchangeToken(
     },
     body,
   });
+  req.log.info(JSON.stringify(response, null, 2));
   const data = (await response.json()) as { access_token: string };
   req.log.info(data);
 
